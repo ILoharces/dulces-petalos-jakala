@@ -11,10 +11,10 @@ const mapApiResponseToFlower = (apiData: any): Flower => {
                 ? apiData.price
                 : parseFloat(apiData.price) || 0,
         imgUrl: apiData.imgUrl || "",
-        wateringPerWeek:
-            typeof apiData.wateringPerWeek === "number"
-                ? apiData.wateringPerWeek
-                : parseInt(apiData.wateringPerWeek) || 0,
+        wateringsPerWeek:
+            typeof apiData.wateringsPerWeek === "number"
+                ? apiData.wateringsPerWeek
+                : parseInt(apiData.wateringsPerWeek) || 0,
         fertilizerType: apiData.fertilizerType || "",
         heightInCm:
             typeof apiData.heightInCm === "number"

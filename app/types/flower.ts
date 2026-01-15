@@ -4,7 +4,7 @@ export interface Flower {
   binomialName: string;
   price: number;
   imgUrl: string;
-  wateringPerWeek: number;
+  wateringsPerWeek: number;
   fertilizerType: string;
   heightInCm: number;
 };

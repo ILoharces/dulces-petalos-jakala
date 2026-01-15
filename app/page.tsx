@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/header";
 import SearchBar from "./components/searchBar";
 import { FlowerItem } from "./components/flowerItem";
-import { useFlowers } from "./hooks/useFowers";
+import { useFlowers } from "./hooks/useFlowers";
 import { Flower } from "./types/flower";
 
 export default function Home() {

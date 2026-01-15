@@ -48,8 +48,8 @@ export default function ProductDetails({ flower }: ProductDetailsProps) {
             </div>
 
             <ul className="list-disc pl-5 space-y-1 text-base text-gray-700">
-              <li>regar {flower.wateringPerWeek} veces por semana</li>
-              <li>fertilizar con {flower.fertilizerType}</li>
+              <li>regar {flower.wateringsPerWeek} ve{flower.wateringsPerWeek === 1 ? "z" : "ces"} por semana</li>
+              <li>fertilizar con {flower.fertilizerType} ({flower.fertilizerType === "phosphorus" ? "fósforo" : "nitrógeno"})</li>
             </ul>
 
             <button

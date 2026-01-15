@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Header from '../../components/header';
 import ProductDetails from '../../productDetails';
-import { useFlowers } from '../../hooks/useFowers';
+import { useFlowers } from '../../hooks/useFlowers';
 import { Flower } from '../../types/flower';
 
 export default function ProductPage() {
