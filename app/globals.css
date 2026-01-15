@@ -10,6 +10,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +26,52 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Prevenir cambios de zoom en imágenes */
+.flowers-grid img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Grid con 4 columnas por defecto, los items ocuparan todo el espacio disponible */
+.flowers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  width: 100%;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  will-change: contents;
+  align-items: start;
+}
+
+/* Reducir a 3 columnas y márgenes cuando no quepan 4 */
+@media (max-width: 1280px) {
+  .flowers-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Reducir a 2 columnas y márgenes cuando no quepan 3 */
+@media (max-width: 960px) {
+  .flowers-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Reducir a 1 columna y márgenes cuando no quepan 2 */
+@media (max-width: 640px) {
+  .flowers-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
