@@ -2,14 +2,19 @@
 
 import { Flower } from "./types/flower";
 import Breadcrumbs from "./components/breadcrumbs";
+import { useTranslate } from "./hooks/useTranslate";
 
 interface ProductDetailsProps {
   flower: Flower;
 }
 
 export default function ProductDetails({ flower }: ProductDetailsProps) {
+  const { translatedText: translatedFertilizer, isLoading: isLoadingTranslation } = useTranslate(flower.fertilizerType);
+
+  const formattedPrice = Number.isFinite(flower.price) ? flower.price.toFixed(2) : String(flower.price);
+  
   const handleAddToCart = () => {
-    // Por ahora no hace nada
+    // Funcion de placeholder
   };
 
   return (
@@ -43,13 +48,13 @@ export default function ProductDetails({ flower }: ProductDetailsProps) {
 
             <div>
               <p className="text-3xl md:text-4xl font-bold text-black">
-                € {flower.price}
+                € {formattedPrice}
               </p>
             </div>
 
             <ul className="list-disc pl-5 space-y-1 text-base text-gray-700">
               <li>regar {flower.wateringsPerWeek} ve{flower.wateringsPerWeek === 1 ? "z" : "ces"} por semana</li>
-              <li>fertilizar con {flower.fertilizerType} ({flower.fertilizerType === "phosphorus" ? "fósforo" : "nitrógeno"})</li>
+              <li>fertilizar con {isLoadingTranslation ? flower.fertilizerType : translatedFertilizer}</li>
             </ul>
 
             <button

@@ -7,6 +7,8 @@ import { Flower } from "../types/flower";
 export const FlowerItem = ({ flower }: { flower: Flower }) => {
     const router = useRouter();
 
+    const formattedPrice = Number.isFinite(flower.price) ? flower.price.toFixed(2) : String(flower.price);
+
     const handleClick = () => {
         router.push(`/product/${flower.id}`);
     };
@@ -34,7 +36,7 @@ export const FlowerItem = ({ flower }: { flower: Flower }) => {
                         loading="lazy"
                     />
                     <div className="absolute bottom-3 left-3 bg-white bg-opacity-90 px-3 py-1.5 rounded-lg shadow-sm">
-                        <p className="text-base text-black font-semibold">{flower.price} €</p>
+                        <p className="text-base text-black font-semibold">{formattedPrice} €</p>
                     </div>
                     <div className="absolute bottom-3 right-3 bg-white bg-opacity-90 px-3 py-1.5 rounded-lg shadow-sm">
                         <span className="text-2xl text-black flex items-center justify-center">
